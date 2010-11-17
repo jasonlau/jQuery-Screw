@@ -1,4 +1,4 @@
-/* 
+﻿/* 
     Screw - A jQuery plugin
     ==================================================================
     ©2010 JasonLau.biz - Version 1.0.0
@@ -69,4 +69,9 @@ Or:
 Or:
 <p class="screw" rel="screw-test.php?key1=value&amp;key2=value"></p>
 Or (endless scrolling):
-<p class="screw screw-before screw-repeat" rev="&lt;img src='my-image.jpg' /&gt;"></p>
+<p class="screw screw-before screw-repeat" rev="&lt;img src='my-image.jpg' /&gt;"></p>\
+
+---------------------------------------------------------------------
+Demo Page
+---------------------------------------------------------------------
+http://jasonlau.biz/home/random-photos
