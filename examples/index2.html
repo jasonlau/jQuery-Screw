@@ -1,0 +1,129 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<meta name="author" content="Jason Lau">
+
+	<title>jQuery.Screw Example - JasonLau.biz</title>
+<script type="text/javascript" src="js/jquery.1.6.1.js"></script>
+<script type="text/javascript" src="js/jquery.screw.js"></script>
+<script type="text/javascript">
+
+// Initialize jQuery
+jQuery(document).ready(function($){
+
+// Call screw on the body selector  
+$("body").screw({
+    loadingHTML: '<img alt="Loading" src="images/ajax-loader-red.gif">'
+});
+  
+});
+
+</script>
+<style type="text/css">
+<!--
+	.example-padding{
+	   background-color: #ECECEC;
+	   padding-top: 300px;
+	}
+-->
+</style>
+</head>
+<body>
+
+<div id="lipsum">
+<h2>jQuery.Screw Examples - Loading External And Internal Content - JasonLau.biz</h2>
+<p>This page demonstrates using jQuery.Screw to load external or internal content.</p>
+<p><a href="#external"><em>External</em></a> means the HTML content is imported and loaded from another file. The URL for the remote file is placed in the <strong><em>rel</em></strong> attribute of an HTML tag. The external file can be local or remote.
+<br />
+<br />You can use GET to pass variables to your script if necessary.
+<code>&lt;div class="screw" rel="lipsum.php?p=3&amp;s=40"&gt;&lt;/div&gt;</code>
+</p>
+<p><a href="#internal"><em>Internal</em></a> means the HTML content is loaded from the <strong><em>rev</em></strong> attribute of a HTML tag. The HTML to be loaded is encoded and inserted in the <em><strong>rev</strong></em> attribute of the HTML tag. The content is loaded when the tag is scrolled into view.</p>
+<p>jQuery.Screw is called on the body selector.<br />
+<br />
+<code>&lt;script type="text/javascript" src="js/jquery.1.6.1.js"&gt;&lt;/script&gt;<br />
+&lt;script type="text/javascript" src="js/jquery.screw.js"&gt;&lt;/script&gt;<br />
+&lt;script type="text/javascript"&gt;<br />
+<br />
+// Initialize jQuery<br />
+jQuery(document).ready(function($){<br />
+<br />
+// Call screw on the body selector  <br />
+$("body").screw({<br />
+    loadingHTML: '&lt;img alt="Loading" src="images/ajax-loader-red.gif"&gt;'<br />
+});<br />
+<br /> 
+});<br />
+<br />
+&lt;/script&gt;</code>
+<br />
+<br />
+<a name="external"></a>
+<h3>Loading From An External Source</h3>
+In this example, the external file's URL is used in the <em>rel</em> attribute of a <em>span</em> tag. The <em>span</em> tag is assigned the required class <em>screw</em>. Alternatively, any HTML tag which can hold content can be used instead of the <em>span</em> tag. 
+<br />
+<br />
+<code>&lt;span class="screw" rel="lipsum.html"&gt;&lt;/span&gt;</code>
+<br />Or<br />
+<code>&lt;div class="screw" rel="lipsum.html"&gt;&lt;/div&gt;</code>
+<br />Or<br />
+<code>&lt;p class="screw" rel="lipsum.html"&gt;&lt;/p&gt;</code>
+
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris risus, pellentesque id aliquet eget, porta quis elit. Donec at urna tellus. Sed bibendum dui sit amet orci tempus iaculis. Pellentesque lacinia congue molestie. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse sed dui quis ligula lobortis tincidunt. Quisque et orci vitae nisi dictum imperdiet. Aliquam velit nibh, hendrerit in pellentesque eget, ornare quis tellus. Nunc condimentum, lectus non pellentesque mollis, ante nisi tristique nibh, non facilisis tellus ligula eu metus. Morbi ac ligula nec sem consectetur rhoncus. Curabitur tellus risus, fermentum nec varius rutrum, ultricies ut diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas tempus convallis nibh, non vestibulum urna mattis a. Proin aliquet nibh sit amet lectus pellentesque mollis. Nullam eget tellus nisi, ut aliquam augue. Suspendisse consequat, nisl eleifend eleifend egestas, magna quam pretium nunc, sed auctor sapien ante et urna. Quisque condimentum, urna ut molestie congue, metus dui dictum enim, in gravida justo dui gravida neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel tempus sapien.
+</p>
+<!-- 
+ The `rel` attribute holds the external file's URL when using the class `screw`. If this tag is visible in the browser window when the page loads or the user scrolls, screw will load the content from the external file. The bottom of the window is the trigger-point where jquery.screw will load the content. If all of your screw tags are visible when the page first loads, all of your content will be loaded. 
+-->
+<div class="example-padding">Example Padding</div>
+<span class="screw" rel="lipsum.html?p=2&amp;s=20"></span>
+<div class="example-padding">Example Padding</div>
+<span class="screw" rel="lipsum.html?p=3&amp;s=40"></span>
+<div class="example-padding">Example Padding</div>
+<span class="screw" rel="lipsum.html?p=1&amp;s=50"></span>
+<div class="example-padding">Example Padding</div>
+<span class="screw" rel="lipsum.html?p=4&amp;s=10"></span>
+
+<h3>Tabled Data</h3>
+
+<p>
+The following example loads table cells from an external file. This method could be used to display tabled data from a database.
+<br />
+<br />
+<code>&lt;table border="1px"&gt;<br />
+&lt;tr class="screw" rel="table_cells.html"&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr class="screw" rel="table_cells.html"&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr class="screw" rel="table_cells.html"&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr class="screw" rel="table_cells.html"&gt;<br />
+&lt;/tr&gt;<br />
+&lt;/table&gt;</code>
+</p>
+
+<table border="1px">
+<tr class="screw" rel="table_cells.html">
+</tr>
+<tr class="screw" rel="table_cells.html">
+</tr>
+<tr class="screw" rel="table_cells.html">
+</tr>
+<tr class="screw" rel="table_cells.html">
+</tr>
+</table>
+<a name="internal"></a>
+<h3>Loading From An Internal Source</h3>
+<p>In this example, the HTML to be loaded is placed in the <em>rev</em> attribute of a <em>span</em> tag. The <em>span</em> tag is assigned the required class <em>screw</em>. Alternatively, any HTML tag which can hold content can be used instead of the <em>span</em> tag. 
+<br />
+<br />
+<code>&lt;span class="screw" rev="&amp;lt;div style=&amp;quot;background-color:yellow;&amp; id=&amp;quot;internal-content&amp;quot;&amp;gt;Lorum ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris risus, pellentesque id aliquet eget, porta quis elit. Donec at urna tellus. Sed bibendum dui sit amet orci tempus iaculis. Pellentesque lacinia congue molestie. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse sed dui quis ligula lobortis tincidunt. Quisque et orci vitae nisi dictum imperdiet. Aliquam velit nibh, hendrerit in pellentesque eget, ornare quis tellus. Nunc condimentum, lectus non pellentesque mollis, ante nisi tristique nibh, non facilisis tellus ligula eu metus. Morbi ac ligula nec sem consectetur rhoncus. Curabitur tellus risus, fermentum nec varius rutrum, ultricies ut diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas tempus convallis nibh, non vestibulum urna mattis a. Proin aliquet nibh sit amet lectus pellentesque mollis. Nullam eget tellus nisi, ut aliquam augue. Suspendisse consequat, nisl eleifend eleifend egestas, magna quam pretium nunc, sed auctor sapien ante et urna. Quisque condimentum, urna ut molestie congue, metus dui dictum enim, in gravida justo dui gravida neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel tempus sapien.&amp;lt;/div&amp;gt;"&gt;&lt;/span&gt;</code>
+
+</p>
+<span class="screw" rev="&lt;div style=&quot;background-color:yellow;& id=&quot;internal-content&quot;&gt;Lorum ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris risus, pellentesque id aliquet eget, porta quis elit. Donec at urna tellus. Sed bibendum dui sit amet orci tempus iaculis. Pellentesque lacinia congue molestie. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse sed dui quis ligula lobortis tincidunt. Quisque et orci vitae nisi dictum imperdiet. Aliquam velit nibh, hendrerit in pellentesque eget, ornare quis tellus. Nunc condimentum, lectus non pellentesque mollis, ante nisi tristique nibh, non facilisis tellus ligula eu metus. Morbi ac ligula nec sem consectetur rhoncus. Curabitur tellus risus, fermentum nec varius rutrum, ultricies ut diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas tempus convallis nibh, non vestibulum urna mattis a. Proin aliquet nibh sit amet lectus pellentesque mollis. Nullam eget tellus nisi, ut aliquam augue. Suspendisse consequat, nisl eleifend eleifend egestas, magna quam pretium nunc, sed auctor sapien ante et urna. Quisque condimentum, urna ut molestie congue, metus dui dictum enim, in gravida justo dui gravida neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel tempus sapien.&lt;/div&gt;"></span>
+
+</div>
+<p>&copy;2011 <a href="http://jasonlau.biz">Jason Lau</a></p>  
+</body>
+</html>
