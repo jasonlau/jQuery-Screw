@@ -1,7 +1,7 @@
 ﻿/* 
     Screw - A jQuery plugin
     ==================================================================
-    ©2010 JasonLau.biz - Version 1.0.0
+    ©2010 - 2011 JasonLau.biz - Version 1.0.2
     ==================================================================
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 Options
 ---------------------------------------------------------------------
 Name: loadingHTML
-Description: A string consisting of optional HTML which is before the object is loaded. This option is only used if a insertion position class is not used.
+Description: A string consisting of optional HTML which is displayed before the object is loaded.
 
 ---------------------------------------------------------------------
 Classes
@@ -46,7 +46,10 @@ Name: screw-repeat
 Description: Repeats screw each time the trigger point is reached. This is for effects like continuous scrolling pages where data is appended to the bottom of the page as the user scrolls.
 
 Name: screw-image
-Description: Use the rel attribute to hold a image URL. The image will be loaded into the object with this class. You do not need to use the class 'screw' with this class.
+Description: Use the rel attribute to hold a image URL. The image will be preloaded and loaded into the object with this class. You do not need to use any other classes with this class.
+
+Name: screw-remove
+Description: Objects with this class are hidden when they are scrolled beyond the top or right of the viewport.
 
 ---------------------------------------------------------------------
 Usage
@@ -72,6 +75,6 @@ Or (endless scrolling):
 <p class="screw screw-before screw-repeat" rev="&lt;img src='my-image.jpg' /&gt;"></p>\
 
 ---------------------------------------------------------------------
-Demo Page
+Project Home & Demo Pages
 ---------------------------------------------------------------------
-http://jasonlau.biz/home/random-photos
+http://jasonlau.biz/home/jquery/screw-a-jquery-plugin

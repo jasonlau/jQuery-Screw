@@ -2,7 +2,7 @@
 /* 
     Screw - A jQuery plugin
     ==================================================================
-    ©2010-2011 JasonLau.biz - Version 1.0.1
+    ©2010-2011 JasonLau.biz - Version 1.0.2
     ==================================================================
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -34,13 +34,13 @@
               });
               
               var screwIt = function(it){
-                var h = $(window).height(), st = it.scrollTop(), t = h+st;
+                var h = $(window).height(), w = $(window).width(), st = it.scrollTop(), t = h+st;
                 $(".screw-image").each(function(){                   
                     var pos = $(this).offset(), rand = Math.round(Math.random()*1000);
-                    if(t >= pos.top){
-                    if(!$(this).hasClass('screw-loaded')){
+                    if(t >= pos.top && pos.left <= w){
+                    if(!$(this).hasClass('screw-loaded') && !$(this).hasClass('screw-loading')){
                         
-                        $(this).html('<div id="screw-loading-' + rand + '">' + option.loadingHTML + '</div>');
+                        $(this).addClass('screw-loading').html('<div id="screw-loading-' + rand + '">' + option.loadingHTML + '</div>');
                         // Stop cache
                         var url = $(this).attr('rel'), patt = /&/g;
                         if(patt.test(url)){
@@ -56,7 +56,7 @@
                             o.append('<img style="display:none" id="screw-content-' + rand + '" class="screw-content" src="' + url + '" />');                            
                             $('#screw-loading-' + rand).fadeOut('slow', function(){
                                 $('#screw-content-' + rand).fadeIn('slow');
-                                o.addClass('screw-loaded');
+                                o.removeClass('screw-loading').addClass('screw-loaded');
                             });
                         };
                     }                        
@@ -64,10 +64,10 @@
                 });	
                 
                 $(".screw").each(function(){
-                    var pos = $(this).offset(), rand = Math.round(Math.random()*1000);
-                    if(t >= pos.top){
-                    if(!$(this).hasClass('screw-loaded') || $(this).hasClass('screw-repeat')){
-                        var o = $(this);
+                    var pos = $(this).offset(), o = $(this), rand = Math.round(Math.random()*1000);
+                    if(t >= pos.top && pos.left <= w){
+                    if((!$(this).hasClass('screw-loaded') || $(this).hasClass('screw-repeat') && !$(this).hasClass('screw-loading'))){
+                        o.addClass('screw-loading');
                         if(option.loadingHTML){
                             o.html('<div id="screw-loading-' + rand + '">' + option.loadingHTML + '</div>');
                         }
@@ -103,7 +103,7 @@
                             showContent(rand);
                         }
                         
-                        if(o.hasClass('screw-repeat') && pos.top < $(window).height()){
+                        if(o.hasClass('screw-repeat') && pos.top < $(window).height() && pos.left < $(window).width()){
                             if($(this).attr('rel')){
                             $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
                                     o.before('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + data + '</div>');
@@ -136,10 +136,22 @@
                             showContent(rand);
                         } 
                         }
-                        o.addClass('screw-loaded');                                           
+                        o.removeClass('screw-loading').addClass('screw-loaded');
                     }                        
                     }
                 });
+                
+                $(".screw-remove").each(function(){
+                    if($(this).hasClass('screw-loaded')){
+                        var p = $(this).position();
+                        if(p.top < st || p.left > w){
+                            if($(this).is(':visible')){
+                                $(this).fadeOut('slow');
+                            }
+                        }
+                    }
+                });
+                
               };
               
               var showContent = function(rand){
