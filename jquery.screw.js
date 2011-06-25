@@ -2,7 +2,7 @@
 /* 
     Screw - A jQuery plugin
     ==================================================================
-    ©2010-2011 JasonLau.biz - Version 1.0.3
+    ©2010-2011 JasonLau.biz - Version 1.0.4
     ==================================================================
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -64,8 +64,15 @@
                 });	
                 
                 $(".screw").each(function(){
-                    var pos = $(this).offset(), o = $(this), rand = Math.round(Math.random()*1000);
+                    var pos = $(this).offset(), o = $(this), rand = Math.round(Math.random()*1000), data_type = 'html';
                     if(t >= pos.top && pos.left <= w){
+                        if($(this).hasClass('screw-xml')){
+                          data_type = 'xml';  
+                        } else if($(this).hasClass('screw-json')){
+                          data_type = 'json';  
+                        } else if($(this).hasClass('screw-script')){
+                          data_type = 'script';  
+                        }
                     if((!$(this).hasClass('screw-loaded') || $(this).hasClass('screw-repeat') && !$(this).hasClass('screw-loading'))){
                         o.addClass('screw-loading');
                         if(option.loadingHTML){
@@ -77,7 +84,7 @@
                           $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
                              o.append('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + data + '</div>');
                              showContent(rand);
-                        }, 'html');  
+                        }, data_type);  
                         } else if($(this).attr('rev')){
                             o.append('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + $(this).attr('rev') + '</div>');
                             showContent(rand);
@@ -87,7 +94,7 @@
                           $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
                              o.prepend('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + data + '</div>');
                              showContent(rand);
-                        }, 'html');  
+                        }, data_type);  
                         } else if($(this).attr('rev')){
                             o.prepend('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + $(this).attr('rev') + '</div>');
                             showContent(rand);
@@ -97,7 +104,7 @@
                           $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
                              o.before('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + data + '</div>');
                              showContent(rand);
-                        }, 'html');  
+                        }, data_type);  
                         } else if($(this).attr('rev')){
                             o.before('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + $(this).attr('rev') + '</div>');
                             showContent(rand);
@@ -108,7 +115,7 @@
                             $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
                                     o.before('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + data + '</div>');
                                     showContent(rand);
-                            }, 'html');
+                            }, data_type);
                             } else if($(this).attr('rev')){
                                 o.before('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + $(this).attr('rev') + '</div>');
                                 showContent(rand);
@@ -120,7 +127,7 @@
                           $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
                              o.after('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + data + '</div>');
                              showContent(rand);
-                        }, 'html');  
+                        }, data_type);  
                         } else if($(this).attr('rev')){
                             o.after('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + $(this).attr('rev') + '</div>');
                             showContent(rand);
@@ -130,7 +137,7 @@
                           $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
                              o.append('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + data + '</div>');
                              showContent(rand);
-                        }, 'html');  
+                        }, data_type);  
                         } else if($(this).attr('rev')){
                             o.append('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + $(this).attr('rev') + '</div>');
                             showContent(rand);
