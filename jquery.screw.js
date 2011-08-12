@@ -79,7 +79,15 @@
                             o.html('<div id="screw-loading-' + rand + '">' + option.loadingHTML + '</div>');
                         }
                         
-                        if(o.hasClass('screw-append')){
+                        if(o.hasClass('screw-replace')){
+                        if($(this).attr('rel')){
+                          $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
+                             o.replaceWith(data);
+                        }, data_type);
+                        } else if($(this).attr('rev')){
+                            o.replaceWith($(this).attr('rev'));
+                        }
+                        } else if(o.hasClass('screw-append')){
                         if($(this).attr('rel')){
                           $.get($(this).attr('rel'), { screwrand : Math.round(Math.random()*1000) }, function(data) {
                              o.append('<div style="display:none" id="screw-content-' + rand + '" class="screw-content">' + data + '</div>');
