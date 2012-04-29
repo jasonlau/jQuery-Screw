@@ -51,6 +51,9 @@ Description: Use the rel attribute to hold a image URL. The image will be preloa
 Name: screw-remove
 Description: Objects with this class are hidden when they are scrolled beyond the top or right of the viewport.
 
+Name: screw-replace
+Description: Replaces the object with internal or external data. Use the "rel" attribute to hold the URL for the external data, OR use the "rev" attribute to hold the HTML you want to load. External data is loaded using ajax GET so you may pass variables using the query string.
+
 ---------------------------------------------------------------------
 Usage
 ---------------------------------------------------------------------
