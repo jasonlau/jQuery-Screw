@@ -1,7 +1,7 @@
 ﻿/* 
     Screw - A jQuery plugin
     ==================================================================
-    ©2010 - 2011 JasonLau.biz - Version 1.0.2
+    ©2010 - 2012 JasonLau.biz - Version 1.0.5
     ==================================================================
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
