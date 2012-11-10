@@ -1,7 +1,7 @@
 ﻿/* 
     Screw - A jQuery plugin
     ==================================================================
-    ©2010 - 2012 JasonLau.biz - Version 1.0.5
+    ©2010 - 2012 JasonLau.biz - Version 1.0.6
     ==================================================================
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -57,13 +57,13 @@ Description: Replaces the object with internal or external data. Use the "rel" a
 ---------------------------------------------------------------------
 Usage
 ---------------------------------------------------------------------
-Call screw on the body selector and set up your HTML to utilize it.
+Call screw on the body selector, or any other scrollable object, and set up your HTML to utilize it.
 
 <script src="http://jasonlau.biz/javascript/jquery/latest/jquery-latest.js" type="text/javascript"></script> 
 <script src="jquery.screw.js" type="text/javascript"></script>
 <script type="text/javascript">
 jQuery(function(){
-   $('body').screw();
+   $('#my-div').screw();
 });
 </script>
 
@@ -75,7 +75,20 @@ Or:
 Or:
 <p class="screw" rel="screw-test.php?key1=value&amp;key2=value"></p>
 Or (endless scrolling):
-<p class="screw screw-before screw-repeat" rev="&lt;img src='my-image.jpg' /&gt;"></p>\
+<p class="screw screw-before screw-repeat" rev="&lt;img src='my-image.jpg' /&gt;"></p>
+
+---------------------------------------------------------------------
+Loading Page Fragments
+---------------------------------------------------------------------
+Add the data-load attribute to the screw object. Insert the id or class-name for the remote 
+object you wish to load.
+
+Example:
+Loading by ID attribute -
+<p class="screw" rel="screw-test.php?key1=value&amp;key2=value" data-load="#my-div"></p>
+
+Loading by css class-name -
+<p class="screw" rel="screw-test.php?key1=value&amp;key2=value" data-load=".my-class"></p>
 
 ---------------------------------------------------------------------
 Project Home & Demo Pages
