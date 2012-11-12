@@ -59,7 +59,7 @@ Usage
 ---------------------------------------------------------------------
 Call screw on the body selector, or any other scrollable object, and set up your HTML to utilize it.
 
-<script src="http://jasonlau.biz/javascript/jquery/latest/jquery-latest.js" type="text/javascript"></script> 
+<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script> 
 <script src="jquery.screw.js" type="text/javascript"></script>
 <script type="text/javascript">
 jQuery(function(){
