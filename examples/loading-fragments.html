@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<meta name="author" content="Jason Lau">
+
+	<title>jQuery.Screw Example - JasonLau.biz</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/jquery.screw.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+    $("#example").screw({
+        loadingHTML: '<img alt="Loading" src="images/ajax-loader-red.gif">'
+    });   
+});
+</script>
+<style type="text/css">
+<!--
+	#debug{
+	   background-color: yellow;
+       position: fixed;
+	}
+    
+    #example{
+	   width: 800px;
+       height: 400px !important;
+       max-height: 400px !important;
+       overflow: scroll;
+	}
+    
+    .screw-content{
+        background-color: #EAEAEA;
+        padding: 20px;
+        margin: 0px 20px;
+        -moz-border-radius: 8px;
+        -khtml-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+    }
+-->
+</style>
+</head>
+<body>
+<div id="debug"></div>
+<div id="lipsum">
+<h2>jQuery.Screw Examples - Loading Webpage Fragments - JasonLau.biz</h2>
+<p>This page demonstrates using jQuery.Screw to load fragments of a webpage. Any <em>screw</em> objects which are positioned inside the viewport when the webpage loads are loaded immediately. Others, positioned below the viewport, are not loaded until each <em>screw</em> object is scrolled into view. To prevent an object from loading immediately when the webpage loads, you must provide sufficient padding or additional content so the <em>screw</em> object is not inside the viewport.</p>
+<p>jQuery.Screw is called on the parent. This can either be a window or another scrollable object.<br />
+<br />
+<code>&lt;script type="text/javascript" src="js/jquery.1.6.1.js"&gt;&lt;/script&gt;<br />
+&lt;script type="text/javascript" src="js/jquery.screw.js"&gt;&lt;/script&gt;<br />
+&lt;script type="text/javascript"&gt;<br />
+<br />
+// Initialize jQuery<br />
+jQuery(document).ready(function($){<br />
+<br />
+// Call screw on the parent. This can either be a window or another scrollable object.  <br />
+$(window).screw({<br />
+    loadingHTML: '&lt;img alt="Loading" src="images/ajax-loader-red.gif"&gt;'<br />
+});<br />
+<br /> 
+});<br />
+<br />
+&lt;/script&gt;</code>
+<br />
+<br />
+In this example, the <em>rel</em> attribute of a <em>span</em> tag contains the link for the remote webpage. The <em>span</em> tag is assigned the required class <em>screw</em>, a insertion-position class, <em>screw-after</em>, and the <strong><em>data-load </em></strong> attribute, which contains the id or class-name for the remote object to load. Alternatively, any HTML tag which can hold content can be used instead of the <em>span</em> tag. 
+<br />
+<br />
+<code>&lt;span class="screw screw-after" rel="test-content.html" data-load="#content"&gt;&lt;/span&gt;</code>
+
+</p>
+<div id="example">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mauris risus, pellentesque id aliquet eget, porta quis elit. Donec at urna tellus. Sed bibendum dui sit amet orci tempus iaculis. Pellentesque lacinia congue molestie. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse sed dui quis ligula lobortis tincidunt. Quisque et orci vitae nisi dictum imperdiet. Aliquam velit nibh, hendrerit in pellentesque eget, ornare quis tellus. Nunc condimentum, lectus non pellentesque mollis, ante nisi tristique nibh, non facilisis tellus ligula eu metus. Morbi ac ligula nec sem consectetur rhoncus. Curabitur tellus risus, fermentum nec varius rutrum, ultricies ut diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas tempus convallis nibh, non vestibulum urna mattis a. Proin aliquet nibh sit amet lectus pellentesque mollis. Nullam eget tellus nisi, ut aliquam augue. Suspendisse consequat, nisl eleifend eleifend egestas, magna quam pretium nunc, sed auctor sapien ante et urna. Quisque condimentum, urna ut molestie congue, metus dui dictum enim, in gravida justo dui gravida neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel tempus sapien.
+</p>
+
+<span class="screw screw-after" rel="test-content.html" data-load="#content"></span>
+
+<p>
+Aliquam erat volutpat. Curabitur sit amet metus lectus. Phasellus et elit at erat egestas pellentesque. Morbi mollis porta nisl, at lobortis nulla laoreet faucibus. Donec mauris lectus, molestie vel mollis nec, sollicitudin quis metus. Curabitur eleifend viverra nibh, id posuere tellus viverra in. Suspendisse faucibus dui eget arcu vulputate et lacinia leo cursus. Quisque gravida lectus at purus auctor quis luctus sapien dignissim. Suspendisse ultrices mauris at lectus mollis iaculis. Aliquam augue sapien, viverra a luctus vel, ornare id sapien. Curabitur posuere consectetur varius. Nulla velit augue, cursus in consequat vitae, gravida in tortor. Fusce egestas urna id mi dapibus auctor. Sed varius viverra commodo. Etiam porttitor lectus eget dolor venenatis tempor. Phasellus eget est purus, vel molestie neque.
+</p>
+
+<span class="screw screw-after" rel="test-content.html" data-load="#content"></span>
+
+<p>
+Nulla vitae neque lorem. Phasellus vel pellentesque augue. Duis lacus purus, pharetra eu ultrices quis, suscipit id massa. Nam at tristique ligula. Suspendisse eu metus ante. Etiam pulvinar, lectus non vestibulum blandit, dolor mauris iaculis felis, id sagittis dolor tortor eu nunc. Integer nunc est, blandit sit amet dictum vel, cursus ac nisi. Quisque convallis, nisl quis sodales gravida, felis erat euismod ligula, eu aliquam nibh turpis eu massa. Nunc eleifend egestas diam, ut sollicitudin nisl ullamcorper a. Donec luctus pulvinar urna sed aliquam. Quisque id odio enim. Maecenas gravida consequat adipiscing. Donec felis lectus, fringilla nec lobortis sed, feugiat in metus. Vestibulum nec libero ac ligula egestas semper at dictum justo. Aliquam scelerisque est eu lectus tempus id hendrerit lacus rutrum. Cras fermentum, sapien nec condimentum ultricies, quam sem adipiscing mauris, quis ultricies urna libero eget nisi. Donec nisl tellus, sodales id elementum vitae, convallis in ligula. Fusce iaculis dui quis lectus ultrices vulputate.
+</p>
+
+<span class="screw screw-after" rel="test-content.html" data-load=".content"></span>
+
+<p>
+Sed consectetur porta dui, sit amet volutpat justo posuere eu. Etiam felis urna, posuere eu egestas et, luctus bibendum erat. Fusce mollis velit a nisi tempor tempor. Vivamus sed odio sit amet turpis facilisis auctor. Praesent sagittis nisl vitae justo auctor at scelerisque eros egestas. Aliquam eleifend semper laoreet. Quisque commodo consequat turpis in tincidunt. Curabitur eleifend purus nec dolor cursus quis adipiscing felis consequat. Etiam rutrum elementum odio quis facilisis. Integer at lorem malesuada eros congue faucibus ac in metus. Quisque at nunc in lectus viverra dictum. Integer eleifend convallis libero, vel imperdiet mauris interdum quis. Nam commodo rutrum velit sed ultricies.
+</p>
+
+<span class="screw screw-after" rel="test-content.html" data-load="#content"></span>
+
+<p>
+Nam augue nibh, ultricies eget tempor nec, vehicula nec nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ligula velit, aliquam et accumsan nec, pellentesque sit amet elit. Maecenas eget mollis sem. Morbi varius fringilla hendrerit. Proin adipiscing risus in turpis sodales eget volutpat metus eleifend. Integer nisi dui, dapibus ut viverra quis, facilisis sed mauris. Nunc lectus velit, hendrerit eu consectetur ut, volutpat vel elit. Praesent nec odio justo, at imperdiet diam. Quisque tincidunt lectus vitae enim dignissim rutrum. Proin ac nisl id nibh vestibulum gravida. Aenean mollis rutrum dui, nec cursus lacus fermentum et. Pellentesque ullamcorper erat rutrum metus volutpat ac ultrices tortor dignissim. Sed dignissim elit id lectus vulputate euismod. Sed in leo metus, sed facilisis lacus. Cras dictum quam sit amet tortor molestie eu ornare risus lobortis. Sed fringilla, augue nec lobortis facilisis, nibh lorem fermentum diam, nec ullamcorper lacus odio et nisi. Fusce mollis tincidunt adipiscing.
+</p>
+
+<span class="screw screw-after" rel="test-content.html" data-load=".content"></span>
+
+</div>
+</div>
+<p>&copy;2011 <a href="http://jasonlau.biz">Jason Lau</a></p>   
+</body>
+</html>
