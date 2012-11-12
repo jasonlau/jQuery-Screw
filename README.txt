@@ -85,10 +85,10 @@ object you wish to load.
 
 Example:
 Loading by ID attribute -
-<p class="screw" rel="screw-test.php?key1=value&amp;key2=value" data-load="#my-div"></p>
+<p class="screw screw-after" rel="screw-test.php?key1=value&amp;key2=value" data-load="#my-div"></p>
 
 Loading by css class-name -
-<p class="screw" rel="screw-test.php?key1=value&amp;key2=value" data-load=".my-class"></p>
+<p class="screw screw-after" rel="screw-test.php?key1=value&amp;key2=value" data-load=".my-class"></p>
 
 ---------------------------------------------------------------------
 Project Home & Demo Pages
